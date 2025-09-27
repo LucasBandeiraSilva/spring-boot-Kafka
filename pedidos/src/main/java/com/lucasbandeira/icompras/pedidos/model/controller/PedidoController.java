@@ -1,8 +1,10 @@
 package com.lucasbandeira.icompras.pedidos.model.controller;
 
+import com.lucasbandeira.icompras.pedidos.model.ErroResposta;
 import com.lucasbandeira.icompras.pedidos.model.Pedido;
 import com.lucasbandeira.icompras.pedidos.model.controller.dto.NovoPedidoDTO;
 import com.lucasbandeira.icompras.pedidos.model.controller.mappers.PedidoMapper;
+import com.lucasbandeira.icompras.pedidos.model.exception.ValidationException;
 import com.lucasbandeira.icompras.pedidos.model.service.PedidoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -21,8 +23,13 @@ public class PedidoController {
 
     @PostMapping
     public ResponseEntity<Object> criar( @RequestBody NovoPedidoDTO novoPedidoDTO ){
-        Pedido pedido = mapper.map(novoPedidoDTO);
-        Pedido novoPedido = service.criarPedido(pedido);
-        return ResponseEntity.ok(novoPedido.getCodigo());
+        try {
+            Pedido pedido = mapper.map(novoPedidoDTO);
+            Pedido novoPedido = service.criarPedido(pedido);
+            return ResponseEntity.ok(novoPedido.getCodigo());
+        } catch (ValidationException e) {
+            var erroResposta = new ErroResposta("Erro de validação",e.getField(), e.getMessage());
+            return ResponseEntity.badRequest().body(erroResposta);
+        }
     }
 }

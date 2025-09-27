@@ -2,6 +2,7 @@ package com.lucasbandeira.icompras.pedidos.model.service;
 
 import com.lucasbandeira.icompras.pedidos.client.ServicoBancarioClient;
 import com.lucasbandeira.icompras.pedidos.model.Pedido;
+import com.lucasbandeira.icompras.pedidos.model.exception.ValidationException;
 import com.lucasbandeira.icompras.pedidos.model.repository.ItemPedidoRepository;
 import com.lucasbandeira.icompras.pedidos.model.repository.PedidoRepository;
 import com.lucasbandeira.icompras.pedidos.validator.PedidoValidator;
@@ -20,10 +21,11 @@ public class PedidoService {
 
     @Transactional
     public Pedido criarPedido(Pedido pedido){
-        validator.validar(pedido);
-        realizarPersistencia(pedido);
-        enviarSolicitacaoPagamento(pedido);
-        return pedido;
+            validator.validar(pedido);
+            realizarPersistencia(pedido);
+            enviarSolicitacaoPagamento(pedido);
+            return pedido;
+
     }
 
     private void enviarSolicitacaoPagamento( Pedido pedido ) {
