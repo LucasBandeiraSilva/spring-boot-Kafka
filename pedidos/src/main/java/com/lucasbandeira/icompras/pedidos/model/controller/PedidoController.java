@@ -8,12 +8,11 @@ import com.lucasbandeira.icompras.pedidos.model.controller.mappers.PedidoMapper;
 import com.lucasbandeira.icompras.pedidos.model.exception.ItemNaoEncontradoException;
 import com.lucasbandeira.icompras.pedidos.model.exception.ValidationException;
 import com.lucasbandeira.icompras.pedidos.model.service.PedidoService;
+import com.lucasbandeira.icompras.pedidos.publisher.DetalhePedidoMapper;
+import com.lucasbandeira.icompras.pedidos.publisher.representation.DetalhePedidoRepresentation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping( "/pedidos")
@@ -22,6 +21,7 @@ public class PedidoController {
 
     private final PedidoService service;
     private final PedidoMapper mapper;
+    private final DetalhePedidoMapper detalhePedidoMapper;
 
     @PostMapping
     public ResponseEntity<Object> criar( @RequestBody NovoPedidoDTO novoPedidoDTO ){
@@ -44,5 +44,13 @@ public class PedidoController {
             var erro = new ErroResposta("Item Não encontrado","codigoPedido", e.getMessage());
             return ResponseEntity.badRequest().body(erro);
         }
+    }
+
+    @GetMapping("/{codigo}")
+    public ResponseEntity<DetalhePedidoRepresentation> obterDetalhesPedido(@PathVariable Long codigo){
+        return service.carregarDadosCompletosPedidos(codigo)
+                .map(detalhePedidoMapper::map)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 }

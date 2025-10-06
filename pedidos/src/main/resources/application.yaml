@@ -29,6 +29,6 @@ icompras:
     kafka:
       server-url: 'localhost:29092'
       topics:
-      pedidos-pagos: 'icompras.pedidos-pagos'
-      pedidos-faturados: 'icompras.pedidos-faturados'
-      pedidos-enviados: 'icompras.pedidos-enviados'
+        pedidos-pagos: 'icompras.pedidos-pagos'
+        pedidos-faturados: 'icompras.pedidos-faturados'
+        pedidos-enviados: 'icompras.pedidos-enviados'
