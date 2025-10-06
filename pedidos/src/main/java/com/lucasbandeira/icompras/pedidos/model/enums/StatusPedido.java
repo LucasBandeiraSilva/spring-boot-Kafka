@@ -1,6 +1,6 @@
 package com.lucasbandeira.icompras.pedidos.model.enums;
 
-public enum StatusPedidos {
+public enum StatusPedido {
     REALIZADO,
     PAGO,
     FATURADO,

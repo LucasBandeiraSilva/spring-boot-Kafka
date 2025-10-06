@@ -1,6 +1,7 @@
 package com.lucasbandeira.icompras.pedidos.model;
 
-import com.lucasbandeira.icompras.pedidos.model.enums.StatusPedidos;
+import com.lucasbandeira.icompras.pedidos.client.representation.ClienteRepresentation;
+import com.lucasbandeira.icompras.pedidos.model.enums.StatusPedido;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -37,7 +38,7 @@ public class Pedido {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private StatusPedidos status;
+    private StatusPedido status;
 
     @Column(name = "codigo_rastreio")
     private String codigoRastreio;
@@ -50,4 +51,7 @@ public class Pedido {
 
     @OneToMany(mappedBy = "pedido")
     private List<ItemPedido> itens;
+
+    @Transient
+    private ClienteRepresentation dadosCliente;
 }

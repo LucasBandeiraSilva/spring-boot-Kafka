@@ -4,7 +4,7 @@ import com.lucasbandeira.icompras.pedidos.model.ItemPedido;
 import com.lucasbandeira.icompras.pedidos.model.Pedido;
 import com.lucasbandeira.icompras.pedidos.model.controller.dto.ItemPedidoDTO;
 import com.lucasbandeira.icompras.pedidos.model.controller.dto.NovoPedidoDTO;
-import com.lucasbandeira.icompras.pedidos.model.enums.StatusPedidos;
+import com.lucasbandeira.icompras.pedidos.model.enums.StatusPedido;
 import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 
@@ -28,7 +28,7 @@ public interface PedidoMapper {
 
     @AfterMapping
     default void afterMapping(@MappingTarget Pedido pedido){
-        pedido.setStatus(StatusPedidos.REALIZADO);
+        pedido.setStatus(StatusPedido.REALIZADO);
         pedido.setDataPedido(LocalDateTime.now());
 
         var total = calcularTotal(pedido);

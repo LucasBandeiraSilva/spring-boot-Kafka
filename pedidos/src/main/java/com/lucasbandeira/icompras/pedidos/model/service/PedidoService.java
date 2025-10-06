@@ -3,10 +3,9 @@ package com.lucasbandeira.icompras.pedidos.model.service;
 import com.lucasbandeira.icompras.pedidos.client.ServicoBancarioClient;
 import com.lucasbandeira.icompras.pedidos.model.DadosPagamento;
 import com.lucasbandeira.icompras.pedidos.model.Pedido;
-import com.lucasbandeira.icompras.pedidos.model.enums.StatusPedidos;
+import com.lucasbandeira.icompras.pedidos.model.enums.StatusPedido;
 import com.lucasbandeira.icompras.pedidos.model.enums.TipoPagamento;
 import com.lucasbandeira.icompras.pedidos.model.exception.ItemNaoEncontradoException;
-import com.lucasbandeira.icompras.pedidos.model.exception.ValidationException;
 import com.lucasbandeira.icompras.pedidos.model.repository.ItemPedidoRepository;
 import com.lucasbandeira.icompras.pedidos.model.repository.PedidoRepository;
 import com.lucasbandeira.icompras.pedidos.validator.PedidoValidator;
@@ -55,9 +54,9 @@ public class PedidoService {
         Pedido pedido = pedidoEncontrado.get();
 
         if (sucesso){
-            pedido.setStatus(StatusPedidos.PAGO);
+            pedido.setStatus(StatusPedido.PAGO);
         }else{
-            pedido.setStatus(StatusPedidos.ERRO_PAGAMENTO);
+            pedido.setStatus(StatusPedido.ERRO_PAGAMENTO);
             pedido.setObservacoes(observacoes);
         }
         repository.save(pedido);
@@ -75,7 +74,7 @@ public class PedidoService {
         dadosPagamento.setTipoPagamento(tipoPagamento);
         dadosPagamento.setDados(dadosCartao);
         pedido.setDadosPagamento(dadosPagamento);
-        pedido.setStatus(StatusPedidos.REALIZADO);
+        pedido.setStatus(StatusPedido.REALIZADO);
         pedido.setObservacoes("Novo pagamento realizado, aguardando o novo processamento.");
 
         String novaChavePagamento = servicoBancarioClient.solicitarPagamento(pedido);
