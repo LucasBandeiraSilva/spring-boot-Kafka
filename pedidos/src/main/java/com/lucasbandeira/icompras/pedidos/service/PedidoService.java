@@ -1,4 +1,4 @@
-package com.lucasbandeira.icompras.pedidos.model.service;
+package com.lucasbandeira.icompras.pedidos.service;
 
 import com.lucasbandeira.icompras.pedidos.client.ClientesClient;
 import com.lucasbandeira.icompras.pedidos.client.ProdutosClient;

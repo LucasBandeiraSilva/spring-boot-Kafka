@@ -1,13 +1,13 @@
-package com.lucasbandeira.icompras.pedidos.model.controller;
+package com.lucasbandeira.icompras.pedidos.controller;
 
 import com.lucasbandeira.icompras.pedidos.model.ErroResposta;
 import com.lucasbandeira.icompras.pedidos.model.Pedido;
-import com.lucasbandeira.icompras.pedidos.model.controller.dto.AdicaoNovoPagamentoDTO;
-import com.lucasbandeira.icompras.pedidos.model.controller.dto.NovoPedidoDTO;
-import com.lucasbandeira.icompras.pedidos.model.controller.mappers.PedidoMapper;
+import com.lucasbandeira.icompras.pedidos.controller.dto.AdicaoNovoPagamentoDTO;
+import com.lucasbandeira.icompras.pedidos.controller.dto.NovoPedidoDTO;
+import com.lucasbandeira.icompras.pedidos.controller.mappers.PedidoMapper;
 import com.lucasbandeira.icompras.pedidos.model.exception.ItemNaoEncontradoException;
 import com.lucasbandeira.icompras.pedidos.model.exception.ValidationException;
-import com.lucasbandeira.icompras.pedidos.model.service.PedidoService;
+import com.lucasbandeira.icompras.pedidos.service.PedidoService;
 import com.lucasbandeira.icompras.pedidos.publisher.DetalhePedidoMapper;
 import com.lucasbandeira.icompras.pedidos.publisher.representation.DetalhePedidoRepresentation;
 import lombok.RequiredArgsConstructor;

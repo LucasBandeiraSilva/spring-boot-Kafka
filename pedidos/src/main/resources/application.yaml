@@ -14,6 +14,10 @@ spring:
     properties:
       hibernate:
         format_sql: true
+  kafka:
+    bootstrap-servers: 'localhost:29092'
+    consumer:
+      group-id: icompras-atualizacao-pedido
 
 server:
   port: 8080

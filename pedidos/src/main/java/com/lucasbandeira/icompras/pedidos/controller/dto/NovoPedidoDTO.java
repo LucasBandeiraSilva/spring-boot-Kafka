@@ -1,4 +1,4 @@
-package com.lucasbandeira.icompras.pedidos.model.controller.dto;
+package com.lucasbandeira.icompras.pedidos.controller.dto;
 
 import java.util.List;
 

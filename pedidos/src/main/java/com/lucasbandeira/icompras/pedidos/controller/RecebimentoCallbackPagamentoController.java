@@ -1,7 +1,7 @@
-package com.lucasbandeira.icompras.pedidos.model.controller;
+package com.lucasbandeira.icompras.pedidos.controller;
 
-import com.lucasbandeira.icompras.pedidos.model.controller.dto.RecebimentoCallbackPagamentoDTO;
-import com.lucasbandeira.icompras.pedidos.model.service.PedidoService;
+import com.lucasbandeira.icompras.pedidos.controller.dto.RecebimentoCallbackPagamentoDTO;
+import com.lucasbandeira.icompras.pedidos.service.PedidoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

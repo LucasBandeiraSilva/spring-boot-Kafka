@@ -1,9 +1,9 @@
-package com.lucasbandeira.icompras.pedidos.model.controller.mappers;
+package com.lucasbandeira.icompras.pedidos.controller.mappers;
 
 import com.lucasbandeira.icompras.pedidos.model.ItemPedido;
 import com.lucasbandeira.icompras.pedidos.model.Pedido;
-import com.lucasbandeira.icompras.pedidos.model.controller.dto.ItemPedidoDTO;
-import com.lucasbandeira.icompras.pedidos.model.controller.dto.NovoPedidoDTO;
+import com.lucasbandeira.icompras.pedidos.controller.dto.ItemPedidoDTO;
+import com.lucasbandeira.icompras.pedidos.controller.dto.NovoPedidoDTO;
 import com.lucasbandeira.icompras.pedidos.model.enums.StatusPedido;
 import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
