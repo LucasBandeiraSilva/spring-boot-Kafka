@@ -1,7 +1,7 @@
 package com.lucasbandeira.icompras.faturamento.subscriber;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lucasbandeira.icompras.faturamento.GeradorNotaFiscalService;
+import com.lucasbandeira.icompras.faturamento.service.GeradorNotaFiscalService;
 import com.lucasbandeira.icompras.faturamento.mapper.PedidoMapper;
 import com.lucasbandeira.icompras.faturamento.model.Pedido;
 import com.lucasbandeira.icompras.faturamento.subscriber.representation.DetalhePedidoRepresentation;
