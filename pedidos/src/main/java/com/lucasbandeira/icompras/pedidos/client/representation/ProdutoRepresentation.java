@@ -6,5 +6,5 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.math.BigDecimal;
 
-public record ProdutoRepresentation(Long codigo, String nome, BigDecimal valorUnitario) {
+public record ProdutoRepresentation(Long codigo, String nome, BigDecimal valorUnitario, boolean ativo) {
 }

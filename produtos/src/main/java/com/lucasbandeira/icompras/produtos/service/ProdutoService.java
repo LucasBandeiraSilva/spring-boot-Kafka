@@ -21,4 +21,9 @@ public class ProdutoService {
     public Optional<Produto> obterPorCodigo(Long id){
         return repository.findById(id);
     }
+
+    public void deletar( Produto produto ) {
+        produto.setAtivo(false);
+        repository.save(produto);
+    }
 }
