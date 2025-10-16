@@ -13,3 +13,7 @@ icompras:
       topics:
         pedidos-faturados: 'icompras.pedidos-faturados'
         pedidos-enviados: 'icompras.pedidos-enviados'
+
+
+server:
+  port: 8084
